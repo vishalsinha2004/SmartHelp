@@ -24,38 +24,38 @@ function App() {
 
   // ✅ Export Chat as PDF
   const exportPDF = () => {
-  const doc = new jsPDF();
+    const doc = new jsPDF();
 
-  let y = 10;
-  const lineHeight = 8;
-  const pageHeight = doc.internal.pageSize.height;
+    let y = 10;
+    const lineHeight = 8;
+    const pageHeight = doc.internal.pageSize.height;
 
-  messages.forEach((msg, index) => {
-    const userText = `You: ${msg.user}`;
-    const aiText = `AI: ${msg.bot}`;
+    messages.forEach((msg, index) => {
+      const userText = `You: ${msg.user}`;
+      const aiText = `AI: ${msg.bot}`;
 
-    const userLines = doc.splitTextToSize(userText, 180);
-    const aiLines = doc.splitTextToSize(aiText, 180);
+      const userLines = doc.splitTextToSize(userText, 180);
+      const aiLines = doc.splitTextToSize(aiText, 180);
 
-    if (y + userLines.length * lineHeight > pageHeight - 20) {
-      doc.addPage();
-      y = 10;
-    }
+      if (y + userLines.length * lineHeight > pageHeight - 20) {
+        doc.addPage();
+        y = 10;
+      }
 
-    doc.text(userLines, 10, y);
-    y += userLines.length * lineHeight + 4;
+      doc.text(userLines, 10, y);
+      y += userLines.length * lineHeight + 4;
 
-    if (y + aiLines.length * lineHeight > pageHeight - 20) {
-      doc.addPage();
-      y = 10;
-    }
+      if (y + aiLines.length * lineHeight > pageHeight - 20) {
+        doc.addPage();
+        y = 10;
+      }
 
-    doc.text(aiLines, 10, y);
-    y += aiLines.length * lineHeight + 10;
-  });
+      doc.text(aiLines, 10, y);
+      y += aiLines.length * lineHeight + 10;
+    });
 
-  doc.save("Chat_History.pdf");
-};
+    doc.save("Chat_History.pdf");
+  };
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
       <h1 className="text-3xl font-bold mb-4">SmartHelp AI</h1>
@@ -98,15 +98,17 @@ function App() {
             Send
           </button>
 
-         <button
-  onClick={exportPDF}
-  className="bg-green-600 text-white px-4 py-2 rounded"
->
-  Export Chat
-</button>
-
+          <button
+            onClick={exportPDF}
+            className="bg-green-600 text-white px-4 py-2 rounded"
+          >
+            Export Chat
+          </button>
         </div>
       </div>
+      <footer className="text-xs text-gray-500 mt-2">
+        © 2025 | Built by Vishal Sinha | AI-Powered Chat Application
+      </footer>
     </div>
   );
 }
