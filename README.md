@@ -35,7 +35,12 @@ It supports real-time messaging, conversation history, and exporting chat data â
         1.Python
         2.Django & Django REST Framework
         3.Google Generative AI (Gemini)
-
+        
+    Create .env file:
+    
+        GEMINI_API_KEY=your_api_key_here
+        (Environment Variables (.env): Sensitive credentials such as API keys are securely stored using environment variables to ensure data security and prevent exposure in the source code.)
+    
     Tools & Libraries
 
         1.html2canvas
