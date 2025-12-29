@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .gemini import get_ai_response
+from .ai import get_ai_response
 from .models import ChatHistory
 
 @api_view(['POST'])
